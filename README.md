@@ -1,28 +1,24 @@
 # Bienvenu sur my-produits-app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Lien github en Https
+- https://github.com/Alsace7004/my-produits-app.git
 
-## Get started
+### Lien github en SSH
+- git@github.com:Alsace7004/my-produits-app.git
 
-1. Install dependencies
+## Insctructions pour executer le projet
+
+1. Installer les dépendances
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Demarrer l'application
 
    ```bash
    npx expo start
    ```
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
 
 ### Packages Installé
 - npm install zustand
