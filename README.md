@@ -30,3 +30,6 @@ Join our community of developers creating universal apps.
 - npm i @react-native-async-storage/async-storage
 - npm install nativewind react-native-reanimated@~3.17.4 react-native-safe-area-context@5.4.0
 - npm install --dev tailwindcss@^3.4.17 prettier-plugin-tailwindcss@^0.5.11
+
+### Demarrer le projet sur un device
+- npx expo start -c
