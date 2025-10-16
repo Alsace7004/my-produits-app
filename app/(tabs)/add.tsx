@@ -1,16 +1,17 @@
+import axiosClient from '@/axios'
 import CustomButton from '@/components/CustomButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react'
 import { Alert, ScrollView, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FormField from "../../components/FormField"
-
 const Add = () => {
     const [form,setForm] = useState({
       title:"",
       prix:"",
       description:"",
     })
+     const [data,setData] = useState([])
     const submit = async()=>{
             const myProduct = {
                 title: form.title,
@@ -21,8 +22,11 @@ const Add = () => {
             try {
                 const jsonValue = JSON.stringify(myProduct);
                 await AsyncStorage.setItem('data', jsonValue);
+                const response = await axiosClient.get('/products');
+                const produits = response.data;
+                setData(produits);
+                produits.push(myProduct)
                 Alert.alert('Message','Produit Ajouté le produit');
-               
             } catch (e) {
                 console.error('Error storing object:', e);
             }

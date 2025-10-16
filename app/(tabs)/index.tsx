@@ -2,7 +2,7 @@ import axiosClient from '@/axios';
 import Produit from '@/components/Produit';
 import SearchInput from '@/components/SearchInput';
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, RefreshControl, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -22,6 +22,13 @@ const Index = () => {
     useEffect(()=>{
         getAllProducts()
     },[]);
+     const [refreshing,setRefreshing] = useState(false)
+
+    const onRefresh = async ()=>{
+        setRefreshing(true)
+        await getAllProducts();
+        setRefreshing(false)
+    }
     
   return (
     <SafeAreaView className="h-full">
@@ -47,6 +54,7 @@ const Index = () => {
                                   <SearchInput/>
                               </View>
                 )}
+                refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
                 initialNumToRender={10}
                 windowSize={5} 
             />
