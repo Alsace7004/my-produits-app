@@ -1,6 +1,7 @@
 import CustomButton from '@/components/CustomButton'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { Alert, ScrollView, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FormField from "../../components/FormField"
 
@@ -10,6 +11,22 @@ const Add = () => {
       prix:"",
       description:"",
     })
+    const submit = async()=>{
+            const myProduct = {
+                title: form.title,
+                prix: form.prix,
+                description: form.description,
+            };
+            console.log('valeur de myProduct :',myProduct)
+            try {
+                const jsonValue = JSON.stringify(myProduct);
+                await AsyncStorage.setItem('data', jsonValue);
+                Alert.alert('Message','Produit Ajouté le produit');
+               
+            } catch (e) {
+                console.error('Error storing object:', e);
+            }
+    }
   return (
     <SafeAreaView className="h-full">
       <ScrollView className="px-4 my-6">
@@ -42,8 +59,9 @@ const Add = () => {
         />
  
         <CustomButton
-          title="Enregistrer"
-          constainerStyles="mt-7"
+            title="Enregistrer"
+            constainerStyles="mt-7"
+            handlePress={submit}
         />    
       </ScrollView>
 
