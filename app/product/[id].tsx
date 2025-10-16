@@ -1,4 +1,4 @@
-// app/product/[id].js
+
 import CustomButton from '@/components/CustomButton';
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';

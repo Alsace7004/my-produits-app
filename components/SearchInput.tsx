@@ -16,8 +16,6 @@ const SearchInput = ({initialQuery}) => {
                 placeholder="Rechercher un produit"
                 placeholderTextColor="#000000"
                 onChangeText={(e)=>setQuery(e)}
-                
-             
             />
             <TouchableOpacity
                 onPress={()=>{
