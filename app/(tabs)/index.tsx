@@ -1,4 +1,5 @@
 import axiosClient from '@/axios';
+import CustomEmptyState from '@/components/CustomEmptyState';
 import Produit from '@/components/Produit';
 import SearchInput from '@/components/SearchInput';
 import React, { useEffect, useState } from 'react';
@@ -53,6 +54,12 @@ const Index = () => {
                                   {/*Search*/}
                                   <SearchInput/>
                               </View>
+                )}
+                ListEmptyComponent={()=>(
+                    <CustomEmptyState
+                        title="Pas de produit trouvé"
+                        subtitle="Veuillez verifié votre connexion internet"
+                    />
                 )}
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
                 initialNumToRender={10}
